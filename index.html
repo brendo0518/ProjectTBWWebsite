@@ -286,6 +286,7 @@ footer a{display:block;font-size:14px;margin-bottom:10px;color:#bcb3a2;cursor:po
 footer a:hover{color:var(--gold-soft)}
 .social{display:flex;gap:12px;margin-top:8px}
 .social a{width:38px;height:38px;border:1px solid #3a4a59;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#bcb3a2;margin:0}
+.social a svg{width:17px;height:17px;display:block}
 .social a:hover{border-color:var(--gold);color:var(--gold-soft)}
 .fbar{border-top:1px solid #25323f;padding-top:24px;display:flex;justify-content:space-between;font-size:12.5px;flex-wrap:wrap;gap:10px}
 
@@ -664,7 +665,20 @@ footer a:hover{color:var(--gold-soft)}
       <div>
         <div class="flogo">Tendai · Between Worlds</div>
         <p>Two worlds. One honest voice. The trusted voice of reason for Africans in the diaspora.</p>
-        <div class="social"><a>IG</a><a>TT</a><a>YT</a><a>in</a></div>
+        <div class="social">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect>
+              <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle>
+              <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"></circle>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M6.9 8.9H3.7V20h3.2V8.9zM5.3 7.4c1 0 1.8-.8 1.8-1.7S6.3 4 5.3 4 3.5 4.8 3.5 5.7s.8 1.7 1.8 1.7zM20.5 13.8c0-3-1.6-4.9-4.2-4.9-1.6 0-2.7.8-3.2 1.7V8.9H10V20h3.2v-6.1c0-1.5.8-2.4 2-2.4s2 .8 2 2.5v6h3.2v-6.2z"></path>
+            </svg>
+          </a>
+        </div>
       </div>
       <div><h4>Explore</h4><a onclick="go('about')">My Story</a><a onclick="go('books')">The Books</a><a onclick="go('podcast')">Podcast</a><a onclick="go('letters')">Letters</a><a onclick="go('speaking')">Speaking</a></div>
       <div><h4>The Books</h4><a onclick="go('books')">The Between Worlds Guides</a><a onclick="go('books')">Our Own Worst Enemy</a><a onclick="go('books')">The Things We Never Tell You</a><a onclick="go('books')">You Belong Here (youth)</a><a onclick="go('home');setTimeout(()=>focusSignup('signupForm'),400)">Free Toolkit</a></div>
