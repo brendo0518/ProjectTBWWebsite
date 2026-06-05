@@ -161,9 +161,13 @@ section{padding:84px 0}
 .reader-foot{padding:14px 26px;border-top:1px solid var(--line);display:flex;gap:12px;justify-content:center;flex-wrap:wrap;background:var(--cream)}
 @media(max-width:680px){.reader-head{flex-wrap:wrap}.reader-actions{width:100%;margin-left:0;justify-content:flex-end}.reader-body iframe{height:54vh}}
 .book{cursor:default}
+.book-link{display:block;cursor:pointer}
 .book .cover{aspect-ratio:2/3;border-radius:2px;padding:18px 15px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;box-shadow:0 14px 34px -16px rgba(0,0,0,.6);transition:transform .3s}
 .book:hover .cover{transform:translateY(-8px) rotate(-1deg)}
 .book .cover::after{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:rgba(0,0,0,.22)}
+.book .cover.has-cover{padding:0;background:transparent}
+.book .cover.has-cover::after{display:none}
+.book .cover-img{width:100%;height:100%;display:block;object-fit:cover}
 .book .cover .bt{font-family:'Fraunces';font-weight:600;font-size:16.5px;line-height:1.12;color:#fff}
 .book .cover .bnum{font-family:'Fraunces';font-style:italic;font-size:12px;opacity:.85}
 .book .cover .bauthor{font-family:'Mulish';font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;opacity:.9}
@@ -275,6 +279,8 @@ section{padding:84px 0}
 .brow .btopic{font-size:13px;color:var(--rust);font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-top:4px}
 .brow .bdesc{font-size:15px;color:var(--stone)}
 .coming{display:inline-block;background:var(--sand-deep);color:var(--stone);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:2px;margin-top:8px}
+.available-now{background:#2f7d4f;color:#fff;padding:8px 16px;transition:background .2s,transform .15s}
+.available-now:hover{background:#24633e;color:#fff;transform:translateY(-1px)}
 
 /* footer */
 footer{background:var(--navy-deep);color:#bcb3a2;padding:64px 0 32px}
@@ -708,6 +714,8 @@ const books=[
   ["11","Where Does My Body Belong","Body, rest & wellbeing","Carrying a body through migration — exhaustion, shame, and the right to rest and belong in your own skin.","c11"],
   ["12","The Other Side of the Money","Building wealth","Beyond boundaries to building — turning what you earn into something that lasts, for you and yours.","c12"]
 ];
+const moneyBetweenUsUrl='https://www.amazon.com.au/dp/B0GX32234H';
+const moneyBetweenUsCover='assets/images/cover-book1-money-between-us.jpg';
 // standalone adult books
 const standalones=[
   ["Our Own Worst Enemy","When we turn on our own","An honest, constructive look at why people of the diaspora sometimes turn on each other — and how we choose Ubuntu instead. A mirror, not an accusation.","c13"],
@@ -719,18 +727,27 @@ const youth=[
   ["You Belong Here","Children · ages 7–14","For when you're the only one who looks like you. A warm, gentle book that helps a child feel proud, safe, and certain they belong.","cy1","free"],
   ["Not Your Experiment","Young adults · ages 17–25","For when the West is dazzled by you for the wrong reasons. How to tell who values you, keep your worth, and keep yourself.","cy2"]
 ];
+function homeBookHTML(b){
+  var isBookOne=b[0]==='1';
+  var cover=isBookOne
+    ? `<div class="cover has-cover"><img class="cover-img" src="${moneyBetweenUsCover}" alt="${b[1]} book cover"></div>`
+    : `<div class="cover ${b[4]}">
+      <div><div class="bnum">Book ${b[0]}</div></div>
+      <div class="bt">${b[1]}</div>
+      <div class="bauthor">Tendai</div>
+    </div>`;
+  var body=`${cover}<div class="topic">${b[2]}</div>`;
+  return isBookOne
+    ? `<a class="book book-link" href="${moneyBetweenUsUrl}" target="_blank" rel="noopener" aria-label="Buy ${b[1]} on Amazon">${body}</a>`
+    : `<div class="book">${body}</div>`;
+}
 // home: first 5
-document.getElementById('homeBooks').innerHTML=books.slice(0,5).map(b=>`
-  <div class="book"><div class="cover ${b[4]}">
-    <div><div class="bnum">Book ${b[0]}</div></div>
-    <div class="bt">${b[1]}</div>
-    <div class="bauthor">Tendai</div>
-  </div><div class="topic">${b[2]}</div></div>`).join('');
+document.getElementById('homeBooks').innerHTML=books.slice(0,5).map(homeBookHTML).join('');
 // books page full list
 document.getElementById('bookList').innerHTML=books.map((b,i)=>`
   <div class="brow">
     <div class="bno">${b[0].padStart(2,'0')}</div>
-    <div><div class="btitle">${b[1]}</div><div class="btopic">${b[2]}</div>${i===0?'<span class="coming" style="background:var(--gold);color:var(--navy-deep)">Launching first</span>':'<span class="coming">Coming in the series</span>'}</div>
+    <div><div class="btitle">${b[1]}</div><div class="btopic">${b[2]}</div>${i===0?`<a class="coming available-now" href="${moneyBetweenUsUrl}" target="_blank" rel="noopener">Available Now</a>`:'<span class="coming">Coming in the series</span>'}</div>
     <div class="bdesc">${b[3]}</div>
   </div>`).join('');
 
