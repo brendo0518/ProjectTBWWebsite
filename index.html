@@ -259,6 +259,11 @@ section{padding:84px 0}
 .phead .eyebrow{font-family:'Mulish';font-weight:700;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:14px}
 .phead h1{font-size:clamp(36px,5vw,58px);color:#fff;max-width:780px}
 .phead p{font-size:18px;color:#cdc5b5;max-width:620px;margin-top:18px}
+.book-jumps{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.book-jumps a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:11px 18px;border:1px solid rgba(227,192,116,.5);border-radius:2px;background:rgba(255,255,255,.06);color:var(--cream);font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;transition:background .2s,border-color .2s,color .2s,transform .15s}
+.book-jumps a:first-child{background:var(--gold);border-color:var(--gold);color:var(--navy-deep)}
+.book-jumps a:hover{background:var(--gold-soft);border-color:var(--gold-soft);color:var(--navy-deep);transform:translateY(-1px)}
+.book-anchor{scroll-margin-top:96px}
 
 /* about full */
 .story{max-width:760px;margin:0 auto}
@@ -318,6 +323,7 @@ footer a:hover{color:var(--gold-soft)}
 @media(max-width:560px){
   .bgrid,.spk-grid,.values,.foot-grid{grid-template-columns:1fr}
   .back-top{right:16px;bottom:16px;width:44px;height:44px;font-size:22px}
+  .book-jumps a{width:100%;padding-left:14px;padding-right:14px}
 }
 </style>
 <!-- MailerLite Universal -->
@@ -561,17 +567,22 @@ footer a:hover{color:var(--gold-soft)}
     <div class="eyebrow">The Between Worlds Guides</div>
     <h1>Sixteen books for the life between two worlds.</h1>
     <p>A twelve-book guide to diaspora life, two standalone books, and a youth wave for the next generation. Each tells a truth no one else will — and offers a clear way through.</p> <p style="margin-top:6px;color:var(--gold-soft);font-weight:600">For children (7&ndash;14), young adults (17&ndash;25), and adults &mdash; every age between worlds.</p>
+    <div class="book-jumps" aria-label="Book series navigation">
+      <a href="#books-guides">The Between Worlds Guides</a>
+      <a href="#honest-books">Honest Books</a>
+      <a href="#youth-wave">You Belong Here Youth Wave</a>
+    </div>
   </div></div>
   <section><div class="wrap">
-    <h2 class="sec-title" style="margin-bottom:8px">The Between Worlds Guides</h2>
+    <h2 class="sec-title book-anchor" id="books-guides" style="margin-bottom:8px">The Between Worlds Guides</h2>
     <p style="color:var(--stone);max-width:680px;margin:0 auto 30px;text-align:center">The twelve-book series at the heart of it all — one honest guide for each part of diaspora life.</p>
     <div class="blist" id="bookList"></div>
 
-    <h2 class="sec-title" style="margin-top:64px">Three more honest books</h2>
+    <h2 class="sec-title book-anchor" id="honest-books" style="margin-top:64px">Three more honest books</h2>
     <p style="color:var(--stone);max-width:680px;margin:0 auto 30px;text-align:center">Standalone books that tell harder truths — one that turns to speak to the people who love us, and one for couples to read together.</p>
     <div class="cardgrid" id="standaloneList"></div>
 
-    <h2 class="sec-title" style="margin-top:64px">The You Belong Here Youth Wave</h2>
+    <h2 class="sec-title book-anchor" id="youth-wave" style="margin-top:64px">The You Belong Here Youth Wave</h2>
     <p style="color:var(--stone);max-width:680px;margin:0 auto 30px;text-align:center">Carrying the message to the next generation — from childhood to young adulthood. You are a whole person, of real worth, and you belong.</p>
     <div class="cardgrid" id="youthList"></div>
 
