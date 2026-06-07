@@ -443,8 +443,7 @@ footer a:hover{color:var(--gold-soft)}
           <p>When the marriage you were raised to expect meets the diaspora &mdash; she&rsquo;s a professional too, sometimes earning more; the load at home is unfair; the bed grows cold &mdash; the old roles collide, and too many good marriages quietly break.</p>
           <p>This is a book for couples to read together. Even-handed and compassionate to both husband and wife, it names the hard truths plainly, then turns every time towards repair &mdash; and a way back to partnership.</p>
           <div class="nb-cta">
-            <a class="btn gold" onclick="go('books')">Read about it</a>
-            <a class="btn ghost" style="border-color:rgba(244,236,220,.5);color:#f4ecdc" onclick="go('home');setTimeout(()=>focusSignup('signupForm'),400)">Tell me when it launches</a>
+            <a class="btn" style="background:#2f7d4f;color:#fff" href="https://amzn.asia/d/0aKObCGr" target="_blank" rel="noopener">Available Now on Amazon</a>
           </div>
         </div>
         <div class="nb-coverwrap">
@@ -727,6 +726,7 @@ const books=[
 ];
 const moneyBetweenUsUrl='https://www.amazon.com.au/dp/B0GX32234H';
 const moneyBetweenUsCover='assets/images/cover-book1-money-between-us.jpg';
+const whoWearsTheTrousersUrl='https://amzn.asia/d/0aKObCGr';
 // standalone adult books
 const standalones=[
   ["Our Own Worst Enemy","When we turn on our own","An honest, constructive look at why people of the diaspora sometimes turn on each other — and how we choose Ubuntu instead. A mirror, not an accusation.","c13"],
@@ -767,7 +767,7 @@ function cardHTML(b,label){
   var isNew=b[4]==='new';
   var click=isFree?' style="cursor:pointer" onclick="openYBH()"':'';
   var freeTag=isFree?'<span class="age-tag" style="margin-top:0">Free · read now</span>':'';
-  var newTag=isNew?'<span class="age-tag" style="margin-top:0;background:#d9a93b;color:#16293d">New &middot; for couples</span>':'';
+  var newTag=isNew?`<a class="coming available-now" style="margin-top:12px" href="${whoWearsTheTrousersUrl}" target="_blank" rel="noopener">Available Now</a>`:'';
   var action=isFree?'<div style="margin-top:12px"><a class="btn" style="font-size:12px;padding:9px 18px" onclick="event.stopPropagation();openYBH()">Read it free</a></div>':'';
   return `<div class="bookcard"${click}>
     <div class="cover ${b[3]}">
