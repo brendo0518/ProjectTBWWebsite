@@ -69,7 +69,7 @@ nav{display:flex;align-items:center;justify-content:space-between;height:74px}
 .hero-note{font-size:13px;color:#b9 b0a0;color:#bcb3a2;margin-top:18px}
 .portrait{position:relative;aspect-ratio:4/5;border-radius:3px;background:var(--navy-deep);box-shadow:0 30px 70px -20px rgba(0,0,0,.55);overflow:hidden}
 .portrait::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(14,28,43,0) 52%,rgba(14,28,43,.46) 100%);pointer-events:none}
-.portrait img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
 /* reusable photo placeholder */
 .photo-ph{position:relative;border-radius:3px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;color:rgba(255,255,255,.92);box-shadow:0 24px 50px -24px rgba(0,0,0,.5)}
 .photo-ph::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 2px,transparent 2px 22px)}
@@ -79,12 +79,12 @@ nav{display:flex;align-items:center;justify-content:space-between;height:74px}
 .photo-ph .brief{font-family:'Mulish';font-size:13px;line-height:1.5;opacity:.85;max-width:280px;margin:0 auto}
 .photo-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;display:block}
 .photo-ph.has-image::before,.photo-ph.has-image::after{display:none}
-.photo-ph.story-main img{object-position:center top}
+..photo-ph.story-main img{object-position:center top}
 .photo-story{aspect-ratio:1/1.1;background:linear-gradient(160deg,var(--navy),var(--navy-deep))}
 .photo-story::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 25%,rgba(199,154,59,.28),transparent 55%)}
 .photo-speak{aspect-ratio:16/10;background:linear-gradient(155deg,var(--rust),var(--rust-soft));margin-top:40px}
 .photo-speak::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 30%,rgba(227,192,116,.3),transparent 50%)}
-.portrait .tagchip{position:absolute;top:20px;left:20px;z-index:2;background:rgba(14,28,43,.82);color:var(--gold-soft);font-family:'Mulish';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:8px 14px;border-radius:2px}
+.portrait .tagchip{position:absolute;bottom:20px;left:20px;z-index:2;background:rgba(14,28,43,.82);color:var(--gold-soft);font-family:'Mulish';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:8px 14px;border-radius:2px}
 
 /* marquee strip */
 .strip{background:var(--gold);color:var(--navy-deep);font-family:'Fraunces';font-style:italic;font-size:16px;overflow:hidden;white-space:nowrap;padding:13px 0;border-top:3px solid var(--navy);border-bottom:3px solid var(--navy)}
